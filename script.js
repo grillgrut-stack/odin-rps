@@ -24,23 +24,56 @@ function getHumanChoice()
         return answer;
     }
 
-function playRound(humanChoice, computerChoice) 
-    {
-        if (humanChoice === "Rock" && computerChoice === "Paper") 
-            {
-                console.log("You lose! Paper beats Rocks.");
-                computerScore++;
-            }
+
+    function playGame() 
+        {
             
-    }
+        function playRound(humanChoice, computerChoice) 
+            {
+                if (humanChoice === "Rock" && computerChoice === "Paper") 
+                    {
+                        console.log("You lose! Paper beats Rocks.");
+                        computerScore++;
+                    }
+                else if (humanChoice === "Rock" && computerChoice === "Scisccor")
+                    {
+                        console.log("You win! Rock beats Scissors.");
+                        humanScore++;
+                    }
+                else if (humanChoice === computerChoice)
+                    {
+                        console.log("Tie! Both picked the same");
+                    }
+                else if (humanChoice === "Paper" && computerChoice === "Rock")
+                    {
+                        console.log("You win! Paper beats rock.")
+                        humanScore++;
+                    }
+                else if (humanChoice === "Paper" && computerChoice === "Scissors")
+                    {
+                        console.log("You lose! Scissors beats Paper.")
+                        computerScore++;
+                    }
+                else if (humanChoice === "Scissors" && computerChoice === "Rock")
+                    {
+                        console.log("You lose! Rock beats Paper");
+                        computerScore++;
+                    }
+                else if (humanChoice === "Scissors" && computerChoice === "Paper")
+                    {
+                        console.log("You win! Scissors beats Paper.");
+                        humanScore++;
+                    }
+            }
 
-    let humanScore = 0;
-    let computerScore = 0;
+            let humanScore = 0;
+            let computerScore = 0;
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
 
-    
+
+        }
  
 
 
