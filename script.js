@@ -18,7 +18,7 @@ function getComputerChoice(){
     
 }
 
-function getHumanChoice()
+function getHumanChoice() 
     {
         let answer = prompt("Rock, Paper, Scissors?");
         answer = answer.toLowerCase();
@@ -69,18 +69,16 @@ function getHumanChoice()
 
             let humanScore = 0;
             let computerScore = 0;
-
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
+            let game = 1;
 
             for (let i = 5; i > 0; i--)
                 {
+                    const humanSelection = getHumanChoice();
+                    const computerSelection = getComputerChoice();
                     playRound(humanSelection, computerSelection);
                     
-                    humanSelection = getHumanChoice();
-                    computerSelection = getComputerChoice();
-                    console.log("Human choice" + humanSelection)
-                    console.log("Computer choice" + computerSelection);
+                    console.log("Game: " + game + " Human Score: " + humanScore + " Computer Score: " + computerScore)
+                    ++game;
                 }
         }
  
