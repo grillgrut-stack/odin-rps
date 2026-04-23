@@ -24,6 +24,8 @@ function getHumanChoice()
         return answer;
     }
 
+    let humanScore = 0;
+    let computerScore = 0;
  
 
 
