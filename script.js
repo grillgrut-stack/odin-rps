@@ -24,10 +24,24 @@ function getHumanChoice()
         return answer;
     }
 
+function playRound(humanChoice, computerChoice) 
+    {
+        if (humanChoice === "Rock" && computerChoice === "Paper") 
+            {
+                console.log("You lose! Paper beats Rocks.");
+                computerScore++;
+            }
+            
+    }
+
     let humanScore = 0;
     let computerScore = 0;
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    
  
 
 
-console.log(getHumanChoice());
 
