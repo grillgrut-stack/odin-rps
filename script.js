@@ -18,71 +18,122 @@ function getComputerChoice(){
     
 }
 
-function getHumanChoice() 
-    {
-        let answer = prompt("Rock, Paper, Scissors?");
-        answer = answer.toLowerCase();
-        return answer;
-    }
+
+    let computerScore = 0;
+    let humanScore = 0;
 
 
-    function playGame() 
-        {
-            
+
+
         function playRound(humanChoice, computerChoice) 
             {
-                if (humanChoice === "rock" && computerChoice === "paper") 
-                    {
-                        console.log("You lose! Paper beats Rocks.");
-                        computerScore++;
-                    }
-                else if (humanChoice === "rock" && computerChoice === "scissors")
-                    {
-                        console.log("You win! Rock beats Scissors.");
-                        humanScore++;
-                    }
-                else if (humanChoice === computerChoice)
-                    {
-                        console.log("Tie! Both picked the same");
-                    }
-                else if (humanChoice === "paper" && computerChoice === "rock")
-                    {
-                        console.log("You win! Paper beats rock.")
-                        humanScore++;
-                    }
-                else if (humanChoice === "paper" && computerChoice === "scissors")
-                    {
-                        console.log("You lose! Scissors beats Paper.")
-                        computerScore++;
-                    }
-                else if (humanChoice === "scissors" && computerChoice === "rock")
-                    {
-                        console.log("You lose! Rock beats Paper");
-                        computerScore++;
-                    }
-                else if (humanChoice === "scissors" && computerChoice === "paper")
-                    {
-                        console.log("You win! Scissors beats Paper.");
-                        humanScore++;
-                    }
-            }
+                const cons = document.querySelector("#cons");
 
-            let humanScore = 0;
-            let computerScore = 0;
-            let game = 1;
 
-            for (let i = 5; i > 0; i--)
-                {
-                    const humanSelection = getHumanChoice();
-                    const computerSelection = getComputerChoice();
-                    playRound(humanSelection, computerSelection);
-                    
-                    console.log("Game: " + game + " Human Score: " + humanScore + " Computer Score: " + computerScore)
-                    ++game;
+                    if (humanChoice === "rock" && computerChoice === "paper") 
+                        {
+                            cons.textContent = "You lose! Paper beats Rocks.";
+                            computerScore++;
+                        }
+                    else if (humanChoice === "rock" && computerChoice === "scissors")
+                        {
+                            cons.textContent = "You win! Rock beats Scissors.";
+                            humanScore++;
+                            
+                        }
+                    else if (humanChoice === computerChoice)
+                        {
+                            cons.textContent = "Tie! Both picked the same";
+                        }
+                    else if (humanChoice === "paper" && computerChoice === "rock")
+                        {
+                            cons.textContent = "You win! Paper beats rock."
+                            humanScore++;
+                        }
+                    else if (humanChoice === "paper" && computerChoice === "scissors")
+                        {
+                            cons.textContent = "You lose! Scissors beats Paper."
+                            computerScore++;
+                        }
+                    else if (humanChoice === "scissors" && computerChoice === "rock")
+                        {
+                            cons.textContent = "You lose! Rock beats Paper";
+                            computerScore++;
+                        }
+                    else if (humanChoice === "scissors" && computerChoice === "paper")
+                        {
+                            cons.textContent = "You win! Scissors beats Paper.";
+                            humanScore++;
+                        }
                 }
-        }
+
+
+
+
  
-    playGame();
+    const computer = document.querySelector("#computer");
+    computer.textContent = "Computer Score: " + computerScore;
+
+    const human = document.querySelector("#human");
+    human.textContent = "Human Score: " + humanScore;
+
+
+    
+
+    const rock = document.querySelector("#rock");
+    rock.addEventListener("click",  () => {
+        if (humanScore < 5 && computerScore < 5) {
+            playRound("rock", getComputerChoice());
+        } 
+    
+        if (humanScore === 5) {
+            cons.textContent = "Player Wins!";
+        } else if (computerScore === 5) {
+            cons.textContent = "Computer Wins!"
+        }
+        
+        computer.textContent = "Computer Score: " + computerScore;
+        human.textContent = "Human Score: " + humanScore;
+    });
+
+
+
+    const paper = document.querySelector("#paper");
+    paper.addEventListener("click", () => {
+        if (humanScore < 5 && computerScore < 5) {
+            playRound("paper", getComputerChoice());
+        } 
+
+        if (humanScore === 5) {
+            cons.textContent = "Player Wins!";
+        } else if (computerScore === 5) {
+            cons.textContent = "Computer Wins!"
+        }
+
+        computer.textContent = "Computer Score: " + computerScore;
+        human.textContent = "Human Score: " + humanScore;
+    });
+
+
+
+    const scissors = document.querySelector("#scissors");
+    scissors.addEventListener("click", () => {
+        if (humanScore < 5 && computerScore < 5) {
+            playRound("scissors", getComputerChoice());
+        } 
+        
+        if (humanScore === 5) {
+            cons.textContent = "Player Wins!";
+        } else if (computerScore === 5) {
+            cons.textContent = "Computer Wins!"
+        }
+
+        computer.textContent = "Computer Score: " + computerScore;
+        human.textContent = "Human Score: " + humanScore;
+    });
+
+    
+
 
 
 
